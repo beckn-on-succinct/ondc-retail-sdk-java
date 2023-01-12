@@ -2,7 +2,7 @@ package in.succinct.beckn.ondc.retail;
 
 import org.json.simple.JSONArray;
 
-public class Providers extends in.succinct.beckn.BecknObjectsWithId<Provider> {
+public class Providers extends in.succinct.beckn.Providers {
     public Providers() {
         super();
     }
