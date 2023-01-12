@@ -24,7 +24,7 @@ public class Fulfillment extends in.succinct.beckn.Fulfillment {
         if (!TYPES.contains(type)){
             throw new IllegalArgumentException();
         }
-        set("collected_by",type);
+        set("type",type);
     }
 
     public String getCategory(){
