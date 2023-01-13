@@ -2,12 +2,11 @@ package in.succinct.beckn.ondc.retail;
 
 import in.succinct.beckn.BecknObject;
 
+import java.time.Duration;
 import java.util.Date;
 
 public class Item extends in.succinct.beckn.Item {
     public Item() { super();}
-
-    // TODO Add Rating
 
     public String getParentItemId(){
         return get("parent_item_id");
@@ -86,18 +85,18 @@ public class Item extends in.succinct.beckn.Item {
         set("@ondc/org/cancellable",cancellable);
     }
 
-    public Date getReturnWindow(){
-        return getDate("@ondc/org/return_window");
+    public String getReturnWindow(){
+        return get("@ondc/org/return_window");
     }
-    public void setReturnWindow(Date return_window){
-        set("@ondc/org/return_window",return_window, TIMESTAMP_FORMAT);
+    public void setReturnWindow(String return_window){
+        set("@ondc/org/return_window",return_window);
     }
 
-    public Date getTimeToShip(){
-        return getDate("@ondc/org/time_to_ship");
+    public String getTimeToShip(){
+        return get("@ondc/org/time_to_ship");
     }
-    public void setTimeToShip(Date time_to_ship){
-        set("@ondc/org/time_to_ship",time_to_ship, TIMESTAMP_FORMAT);
+    public void setTimeToShip(String time_to_ship){
+        set("@ondc/org/time_to_ship",time_to_ship);
     }
 
     public boolean getAvailableOnCod(){
