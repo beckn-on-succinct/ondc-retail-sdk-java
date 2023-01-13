@@ -1,5 +1,5 @@
 # ondc-retail-sdk-java
-Java SDK for ONDC
+Java SDK for ONDC Retail Domain
 
 This repo defines [ONDC](https://ondc.org/) (Open Network for Digital Commerce) Retail [Specification](https://app.swaggerhub.com/apis/ONDC/ONDC-Protocol-Retail/1.0.28) and also implements several utility functions.
 Java based SellerApp or BuyerApp can consume this. This SDK is agnostic of any Java based application frameworks.
