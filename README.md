@@ -1,4 +1,4 @@
-# ondc-sdk-java
+# ondc-retail-sdk-java
 Java SDK for ONDC
 
 This repo defines [ONDC](https://ondc.org/) (Open Network for Digital Commerce) Retail [Specification](https://app.swaggerhub.com/apis/ONDC/ONDC-Protocol-Retail/1.0.28) and also implements several utility functions.
