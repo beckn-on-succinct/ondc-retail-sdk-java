@@ -29,7 +29,7 @@ public class Item extends in.succinct.beckn.Item {
     public void setRating(Integer rating){
         set("rating",rating);
     }
-    
+
     public Time getTime(){
         return get(Time.class,"time");
     }

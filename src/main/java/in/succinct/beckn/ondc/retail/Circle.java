@@ -7,6 +7,6 @@ public class Circle extends in.succinct.beckn.Circle {
         return get(Scalar.class,"radius");
     }
     public void setScalarRadius(Scalar range){
-        set("range",range.getInner());
+        set("radius",range.getInner());
     }
 }
