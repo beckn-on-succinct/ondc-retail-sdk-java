@@ -7,6 +7,15 @@ import java.util.Date;
 public class Item extends in.succinct.beckn.Item {
     public Item() { super();}
 
+    // TODO Add Rating
+
+    public String getParentItemId(){
+        return get("parent_item_id");
+    }
+    public void setParentItemId(String parent_item_id){
+        set("parent_item_id",parent_item_id);
+    }
+
     public ItemQuantity getItemQuantity(){
         return get(ItemQuantity.class,"quantity");
     }
@@ -14,6 +23,13 @@ public class Item extends in.succinct.beckn.Item {
         set("quantity",quantity.getInner());
     }
 
+    public Integer getRating(){
+        return get("rating");
+    }
+    public void setRating(Integer rating){
+        set("rating",rating);
+    }
+    
     public Time getTime(){
         return get(Time.class,"time");
     }
