@@ -25,7 +25,7 @@ public class Schedule extends BecknObject {
         return get(BecknStrings.class,"times");
     }
     public void setTimes(BecknStrings times){
-        set("holidays", times);
+        set("times", times);
     }
 
 

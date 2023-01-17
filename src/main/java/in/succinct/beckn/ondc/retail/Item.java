@@ -1,12 +1,17 @@
 package in.succinct.beckn.ondc.retail;
 
 import in.succinct.beckn.BecknObject;
+import org.json.simple.JSONObject;
 
 import java.time.Duration;
 import java.util.Date;
 
 public class Item extends in.succinct.beckn.Item {
     public Item() { super();}
+
+    public Item(String payload) { super(payload);}
+
+    public Item(JSONObject item) { super(item);}
 
     public String getParentItemId(){
         return get("parent_item_id");
