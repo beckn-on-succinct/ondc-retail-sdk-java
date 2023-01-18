@@ -28,7 +28,7 @@ The SDK will be published as Maven artifact soon. Consuming this SDK in your pro
   </dependency>
 ```
 
-If you are building an ONDC app (BAP or BPP), It is hightly encouraged that you also consider [bpp.shell](https://github.com/venkatramanm/bpp.shell) project, it brings up an ONDC app with several features already built in, per below, and you can start testing your app on staging in a matter of few hours.
+The SDK can be used to build both BAP and BPP, and if you are building a BPP, It is hightly encouraged that you also consider [bpp.shell](https://github.com/venkatramanm/bpp.shell) project, it brings up an ONDC BPP with several features already built in (as per below), and you can start testing your app on staging in a matter of few hours.
   - Registry subscription
   - Crypto keys management
   - Async callback framework
