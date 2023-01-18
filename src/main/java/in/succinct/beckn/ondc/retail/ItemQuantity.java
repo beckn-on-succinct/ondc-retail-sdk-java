@@ -1,42 +1,43 @@
 package in.succinct.beckn.ondc.retail;
 
 import in.succinct.beckn.BecknObject;
+import in.succinct.beckn.Quantity;
 
 public class ItemQuantity extends BecknObject {
     public ItemQuantity() {super();}
 
-    public ItemQuantityType getAllocated(){
-        return get(ItemQuantityType.class,"allocated");
+    public Quantity getAllocated(){
+        return get(Quantity.class,"allocated");
     }
-    public void setAllocated(ItemQuantityType allocated){
+    public void setAllocated(Quantity allocated){
         set("allocated",allocated.getInner());
     }
 
-    public ItemQuantityType getAvailable(){
-        return get(ItemQuantityType.class,"available");
+    public Quantity getAvailable(){
+        return get(Quantity.class,"available");
     }
-    public void setAvailable(ItemQuantityType available){
+    public void setAvailable(Quantity available){
         set("available",available.getInner());
     }
 
-    public ItemQuantityType getMaximum(){
-        return get(ItemQuantityType.class,"maximum");
+    public Quantity getMaximum(){
+        return get(Quantity.class,"maximum");
     }
-    public void setMaximum(ItemQuantityType maximum){
+    public void setMaximum(Quantity maximum){
         set("maximum",maximum.getInner());
     }
 
-    public ItemQuantityType getMinimum(){
-        return get(ItemQuantityType.class,"minimum");
+    public Quantity getMinimum(){
+        return get(Quantity.class,"minimum");
     }
-    public void setMinimum(ItemQuantityType minimum){
+    public void setMinimum(Quantity minimum){
         set("minimum",minimum.getInner());
     }
 
-    public ItemQuantityType getSelected(){
-        return get(ItemQuantityType.class,"selected");
+    public Quantity getSelected(){
+        return get(Quantity.class,"selected");
     }
-    public void setSelected(ItemQuantityType selected){
+    public void setSelected(Quantity selected){
         set("selected",selected.getInner());
     }
 }
