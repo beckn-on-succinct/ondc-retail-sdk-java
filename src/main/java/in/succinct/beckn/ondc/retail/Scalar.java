@@ -7,10 +7,10 @@ import java.util.Set;
 public class Scalar extends BecknObject {
     public Scalar() { super(); }
 
-    public String getValue(){
+    public double getValue(){
         return get("value");
     }
-    public void setValue(String value){
+    public void setValue(double value){
         set("value",value);
     }
 
@@ -21,17 +21,17 @@ public class Scalar extends BecknObject {
         set("unit",unit);
     }
 
-    public String getEstimatedValue(){
+    public double getEstimatedValue(){
         return get("estimated_value");
     }
-    public void setEstimatedValue(String estimated_value){
+    public void setEstimatedValue(double estimated_value){
         set("estimated_value",estimated_value);
     }
 
-    public String getComputedValue(){
+    public double getComputedValue(){
         return get("computed_value");
     }
-    public void setComputedValue(String computed_value){
+    public void setComputedValue(double computed_value){
         set("computed_value",computed_value);
     }
 

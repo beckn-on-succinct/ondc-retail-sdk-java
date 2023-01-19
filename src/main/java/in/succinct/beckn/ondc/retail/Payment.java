@@ -139,7 +139,7 @@ public class Payment extends in.succinct.beckn.Payment {
         add("Delivery");
     }};
     public void setSettlementBasis(String settlement_basis){
-        if (!SETTLEMENT_BASIS_STATUS.contains(settlement_basis)){
+        if (!SETTLEMENT_BASIS.contains(settlement_basis)){
             throw new IllegalArgumentException();
         }
         set("@ondc/org/settlement_basis",settlement_basis);
