@@ -31,7 +31,7 @@ public class BreakupElement extends BreakUp.BreakUpElement {
         add("delivery");
         add("packing");
         add("tax");
-        add("convenience charge");
+        add("misc");
         add("discount");
     }};
     public void setTitleType(String title_type){
