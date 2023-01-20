@@ -46,7 +46,7 @@ public class Payment extends in.succinct.beckn.Payment {
     }
 
     public String getBuyerAppFinderFeeType() {
-        return get("buyer_app_finder_fee_type");
+        return get("@ondc/org/buyer_app_finder_fee_type");
     }
 
     static final Set<String> FINDER_FEE_TYPES = new HashSet<String>(){{
@@ -58,7 +58,7 @@ public class Payment extends in.succinct.beckn.Payment {
         if (!FINDER_FEE_TYPES.contains(buyer_app_finder_fee_type)){
             throw new IllegalArgumentException();
         }
-        set("buyer_app_finder_fee_type", buyer_app_finder_fee_type);
+        set("@ondc/org/buyer_app_finder_fee_type", buyer_app_finder_fee_type);
     }
 
     public double getBuyerAppFinderFeeAmount(){
