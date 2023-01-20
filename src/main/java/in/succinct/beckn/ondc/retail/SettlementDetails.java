@@ -1,8 +1,8 @@
 package in.succinct.beckn.ondc.retail;
 
-import in.succinct.beckn.BecknObjectsWithId;
+import in.succinct.beckn.BecknObjects;
 
-public class SettlementDetails extends BecknObjectsWithId<SettlementDetail> {
+public class SettlementDetails extends BecknObjects<SettlementDetail> {
     public SettlementDetails() {
         super();
     }
