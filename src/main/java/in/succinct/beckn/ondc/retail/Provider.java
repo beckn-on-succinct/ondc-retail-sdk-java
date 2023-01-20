@@ -34,4 +34,11 @@ public class Provider extends in.succinct.beckn.Provider {
     public void setTime(Time time){
         set("time",time.getInner());
     }
+
+    public boolean getRateable(){
+        return get("rateable");
+    }
+    public void setRateable(boolean rateable){
+        set("rateable",rateable);
+    }
 }
