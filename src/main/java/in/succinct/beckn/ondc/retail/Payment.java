@@ -168,10 +168,10 @@ public class Payment extends in.succinct.beckn.Payment {
         set("@ondc/org/settlement_window_status",settlement_window_status);
     }
 
-    public SettlementDetail getSettlementDetails(){
-        return get(SettlementDetail.class,"@org/ondc/settlement_details");
+    public SettlementDetails getSettlementDetails(){
+        return get(SettlementDetails.class,"@org/ondc/settlement_details");
     }
-    public void setSettlementDetails(SettlementDetail settlement_details){
+    public void setSettlementDetails(SettlementDetails settlement_details){
         set("@org/ondc/settlement_details",settlement_details.getInner());
     }
 
