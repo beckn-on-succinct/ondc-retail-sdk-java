@@ -1,8 +1,5 @@
 package in.succinct.beckn.ondc.retail;
 
-import in.succinct.beckn.BecknObjectWithId;
-import in.succinct.beckn.BecknObjectsWithId;
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,20 +12,6 @@ public class Payment extends in.succinct.beckn.Payment {
         super(payload);
     }
 
-    public String getCollectedBy(){
-        return get("collected_by");
-    }
-    static final Set<String> COLLECTED_BY = new HashSet<String>(){{
-        add("BAP");
-        add("BPP");
-    }};
-    public void setCollectedBy(String collected_by){
-        if (!COLLECTED_BY.contains(collected_by)){
-            throw new IllegalArgumentException();
-        }
-        set("collected_by",collected_by);
-    }
-
     public String getCollectedByStatus(){
         return get("@ondc/org/collected_by_status");
     }
@@ -39,7 +22,7 @@ public class Payment extends in.succinct.beckn.Payment {
         add("Terminate");
     }};
     public void setCollectedByStatus(String collected_by_status){
-        if (!COLLECTED_BY.contains(collected_by_status)){
+        if (!COLLECTED_BY_STATUS.contains(collected_by_status)){
             throw new IllegalArgumentException();
         }
         set("@ondc/org/collected_by_status",collected_by_status);
@@ -175,8 +158,5 @@ public class Payment extends in.succinct.beckn.Payment {
         set("@org/ondc/settlement_details",settlement_details.getInner());
     }
 
-    public static class Params extends in.succinct.beckn.Payment.Params {
-
-    }
 
 }

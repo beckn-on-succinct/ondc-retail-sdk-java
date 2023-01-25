@@ -1,13 +1,16 @@
 package in.succinct.beckn.ondc.retail;
 
 import in.succinct.beckn.BreakUp;
+import in.succinct.beckn.Item;
 import in.succinct.beckn.Quantity;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class BreakupElement extends BreakUp.BreakUpElement {
-    public BreakupElement() { super(); }
+public class BreakUpElement extends BreakUp.BreakUpElement {
+    public BreakUpElement(BreakUp.BreakUpElement element){
+        super();
+    }
 
     public String getItemId(){
         return get("@ondc/org/item_id");

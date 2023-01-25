@@ -7,9 +7,6 @@ public class Category extends in.succinct.beckn.Category {
     public Category(){
         super();
     }
-    public Category(String  payload){
-        super(payload);
-    }
 
     public String getId(){
         return get("id");
@@ -21,7 +18,7 @@ public class Category extends in.succinct.beckn.Category {
         add("Fashion");
         add("Home Decor");
     }};
-    public void setTlMethod(String id){
+    public void setId(String id){
         if (!CATEGORY_ID.contains(id)){
             throw new IllegalArgumentException();
         }
