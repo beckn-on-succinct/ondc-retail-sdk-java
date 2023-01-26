@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class BreakUpElement extends BreakUp.BreakUpElement {
-    public BreakUpElement(BreakUp.BreakUpElement element){
+    public BreakUpElement(){
         super();
     }
 
@@ -42,6 +42,13 @@ public class BreakUpElement extends BreakUp.BreakUpElement {
             throw new IllegalArgumentException();
         }
         set("@ondc/org/title_type",title_type);
+    }
+
+    public String getType(){
+        return getTitleType();
+    }
+    public void setType(String type){
+        setTitleType(type);
     }
 
     public Item getItem(){
