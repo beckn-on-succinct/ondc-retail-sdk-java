@@ -12,19 +12,24 @@ public class BreakUpElement extends BreakUp.BreakUpElement {
         super();
     }
 
+    @Override
     public String getItemId(){
         return get("@ondc/org/item_id");
     }
+    @Override
     public void setItemId(String item_id){
         set("@ondc/org/item_id",item_id);
     }
 
+    @Override
     public Quantity getItemQuantity(){
         return get(Quantity.class,"@ondc/org/item_quantity");
     }
+    @Override
     public void setItemQuantity(Quantity quantity){
-        set("@ondc/org/item_quantity",quantity.getInner());
+        set("@ondc/org/item_quantity",quantity);
     }
+
 
     public String getTitleType(){
         return get("@ondc/org/title_type");
@@ -44,18 +49,15 @@ public class BreakUpElement extends BreakUp.BreakUpElement {
         set("@ondc/org/title_type",title_type);
     }
 
+    @Override
     public String getType(){
         return getTitleType();
     }
+    @Override
     public void setType(String type){
         setTitleType(type);
     }
 
-    public Item getItem(){
-        return get(Item.class,"item");
-    }
-    public void setItem(Item item){
-        set("item",item.getInner());
-    }
+
 
 }

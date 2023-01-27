@@ -1,7 +1,8 @@
 package in.succinct.beckn.ondc.retail;
 
-import in.succinct.beckn.BecknObject;
 import org.json.simple.JSONObject;
+
+import java.time.Duration;
 
 public class Item extends in.succinct.beckn.Item {
 
@@ -15,291 +16,83 @@ public class Item extends in.succinct.beckn.Item {
     }
 
 
-    public boolean getReturnable() {
+    @Override
+    public boolean isReturnable() {
         return getBoolean("@ondc/org/returnable");
     }
-
+    @Override
     public void setReturnable(boolean returnable) {
         set("@ondc/org/returnable", returnable);
     }
-
-    public boolean getSellerPickupReturn() {
+    @Override
+    public boolean isSellerPickupReturn() {
         return getBoolean("@ondc/org/seller_pickup_return");
     }
-
+    @Override
     public void setSellerPickupReturn(boolean seller_pickup_return) {
         set("@ondc/org/seller_pickup_return", seller_pickup_return);
     }
-
-    public boolean getCancellable() {
+    @Override
+    public boolean isCancellable() {
         return getBoolean("@ondc/org/cancellable");
     }
 
+    @Override
     public void setCancellable(boolean cancellable) {
         set("@ondc/org/cancellable", cancellable);
     }
 
-    public String getReturnWindow() {
-        return get("@ondc/org/return_window");
+    @Override
+    public Duration getReturnWindow() {
+        return Duration.parse(get("@ondc/org/return_window"));
     }
 
-    public void setReturnWindow(String return_window) {
-        set("@ondc/org/return_window", return_window);
+    @Override
+    public void setReturnWindow(Duration return_window) {
+        set("@ondc/org/return_window", return_window.toString());
     }
 
-    public String getTimeToShip() {
-        return get("@ondc/org/time_to_ship");
+    @Override
+    public Duration getTimeToShip() {
+        String tos = get("@ondc/org/time_to_ship");
+        return tos != null ? Duration.parse(tos):null;
     }
 
-    public void setTimeToShip(String time_to_ship) {
-        set("@ondc/org/time_to_ship", time_to_ship);
+    @Override
+    public void setTimeToShip(Duration time_to_ship) {
+        set("@ondc/org/time_to_ship", time_to_ship.toString());
     }
 
-    public boolean getAvailableOnCod() {
+    @Override
+    public boolean isAvailableOnCod() {
         return getBoolean("@ondc/org/available_on_cod");
     }
 
+    @Override
     public void setAvailableOnCod(boolean available_on_cod) {
         set("@ondc/org/available_on_cod", available_on_cod);
     }
 
+    @Override
     public String getContactDetailsConsumerCare() {
         return get("@ondc/org/contact_details_consumer_care");
     }
 
+    @Override
     public void setContactDetailsConsumerCare(String contact_details_consumer_care) {
         set("@ondc/org/contact_details_consumer_care", contact_details_consumer_care);
     }
 
-    public StatutoryReqsPackagedCommodities getStatutoryReqsPackagedCommodities() {
-        return get(StatutoryReqsPackagedCommodities.class, "@ondc/org/statutory_reqs_packaged_commodities");
+    @Override
+    public PackagedCommodity getPackagedCommodity() {
+        return get(PackagedCommodity.class, "@ondc/org/statutory_reqs_packaged_commodities");
     }
 
-    public void setStatutoryReqsPackagedCommodities(StatutoryReqsPackagedCommodities statutory_reqs_packaged_commodities) {
+
+    @Override
+    public void setPackagedCommodity(PackagedCommodity statutory_reqs_packaged_commodities) {
         set("@ondc/org/statutory_reqs_packaged_commodities", statutory_reqs_packaged_commodities);
     }
 
-    public static class StatutoryReqsPackagedCommodities extends BecknObject {
-        public String getManufacturerOfPackerName() {
-            return get("manufacturer_or_packer_name");
-        }
 
-        public void setManufacturerOfPackerName(String manufacturer_or_packer_name) {
-            set("manufacturer_or_packer_name", manufacturer_or_packer_name);
-        }
-
-        public String getManufacturerOfPackerAddress() {
-            return get("manufacturer_or_packer_address");
-        }
-
-        public void setManufacturerOfPackerAddress(String manufacturer_or_packer_address) {
-            set("manufacturer_or_packer_address", manufacturer_or_packer_address);
-        }
-
-        public String getCommonOrGenericNameOfCommodity() {
-            return get("common_or_generic_name_of_commodity");
-        }
-
-        public void setCommonOrGenericNameOfCommodity(String common_or_generic_name_of_commodity) {
-            set("common_or_generic_name_of_commodity", common_or_generic_name_of_commodity);
-        }
-
-        public String getMultipleProductsNameNumberOrQty() {
-            return get("multiple_products_name_number_or_qty");
-        }
-
-        public void setMultipleProductsNameNumberOrQty(String multiple_products_name_number_or_qty) {
-            set("multiple_products_name_number_or_qty", multiple_products_name_number_or_qty);
-        }
-
-        public String getNetQuantityOrMeasureOfCommodityInPkg() {
-            return get("net_quantity_or_measure_of_commodity_in_pkg");
-        }
-
-        public void setNetQuantityOrMeasureOfCommodityInPkg(String net_quantity_or_measure_of_commodity_in_pkg) {
-            set("net_quantity_or_measure_of_commodity_in_pkg", net_quantity_or_measure_of_commodity_in_pkg);
-        }
-
-        public String getMonthYearOfManufacturePackingImport() {
-            return get("month_year_of_manufacture_packing_import");
-        }
-
-        public void setMonthYearOfManufacturePackingImport(String month_year_of_manufacture_packing_import) {
-            set("month_year_of_manufacture_packing_import", month_year_of_manufacture_packing_import);
-        }
-
-        public String getImportedProductCountryOfOrigin() {
-            return get("imported_product_country_of_origin");
-        }
-
-        public void setImportedProductCountryOfOrigin(String imported_product_country_of_origin) {
-            set("imported_product_country_of_origin", imported_product_country_of_origin);
-        }
-    }
-
-    public static class StatutoryReqsPrepackagedFood extends BecknObject {
-        public String getIngredientsInfo() {
-            return get("ingredients_info");
-        }
-
-        public void setIngredientsInfo(String ingredients_info) {
-            set("ingredients_info", ingredients_info);
-        }
-
-        public String getNutritionalInfo() {
-            return get("nutritional_info");
-        }
-
-        public void setNutritionalInfo(String nutritional_info) {
-            set("nutritional_info", nutritional_info);
-        }
-
-        public String getAdditivesInfo() {
-            return get("additives_info");
-        }
-
-        public void setAdditivesInfo(String additives_info) {
-            set("additives_info", additives_info);
-        }
-
-        public String getManufacturerOfPackerName() {
-            return get("manufacturer_or_packer_name");
-        }
-
-        public void setManufacturerOfPackerName(String manufacturer_or_packer_name) {
-            set("manufacturer_or_packer_name", manufacturer_or_packer_name);
-        }
-
-        public String getManufacturerOfPackerAddress() {
-            return get("manufacturer_or_packer_address");
-        }
-
-        public void setManufacturerOfPackerAddress(String manufacturer_or_packer_address) {
-            set("manufacturer_or_packer_address", manufacturer_or_packer_address);
-        }
-
-        public String getBrandOwnerName() {
-            return get("brand_owner_name");
-        }
-
-        public void setBrandOwnerName(String brand_owner_name) {
-            set("brand_owner_name", brand_owner_name);
-        }
-
-        public String getBrandOwnerAddress() {
-            return get("brand_owner_address");
-        }
-
-        public void setBrandOwnerAddress(String brand_owner_address) {
-            set("brand_owner_address", brand_owner_address);
-        }
-
-        public String getBrandOwnerFSSAILogo() {
-            return get("brand_owner_FSSAI_logo");
-        }
-
-        public void setBrandOwnerFSSAILogo(String brand_owner_FSSAI_logo) {
-            set("brand_owner_FSSAI_logo", brand_owner_FSSAI_logo);
-        }
-
-        public String getBrandOwnerFSSAILicenseNo() {
-            return get("brand_owner_FSSAI_license_no");
-        }
-
-        public void setBrandOwnerFSSAILicenseNo(String brand_owner_FSSAI_license_no) {
-            set("brand_owner_FSSAI_license_no", brand_owner_FSSAI_license_no);
-        }
-
-        public String getOtherFSSAILicenseNo() {
-            return get("other_FSSAI_license_no");
-        }
-
-        public void setOtherFSSAILicenseNo(String other_FSSAI_license_no) {
-            set("other_FSSAI_license_no", other_FSSAI_license_no);
-        }
-
-        public String getNetQuantity() {
-            return get("net_quantity");
-        }
-
-        public void setNetQuantity(String net_quantity) {
-            set("net_quantity", net_quantity);
-        }
-
-        public String getImporterName() {
-            return get("importer_name");
-        }
-
-        public void setImporterName(String importer_name) {
-            set("importer_name", importer_name);
-        }
-
-        public String getImporterAddress() {
-            return get("importer_name");
-        }
-
-        public void setImporterAddress(String importer_name) {
-            set("importer_name", importer_name);
-        }
-
-        public String getImporterFSSAILogo() {
-            return get("importer_FSSAI_logo");
-        }
-
-        public void setImporterFSSAILogo(String importer_FSSAI_logo) {
-            set("importer_FSSAI_logo", importer_FSSAI_logo);
-        }
-
-        public String getImporterFSSAILicenseNo() {
-            return get("importer_FSSAI_license_no");
-        }
-
-        public void setImporterFSSAILicenseNo(String importer_FSSAI_license_no) {
-            set("importer_FSSAI_license_no", importer_FSSAI_license_no);
-        }
-
-        public String getImportedProductCountryOfOrigin() {
-            return get("imported_product_country_of_origin");
-        }
-
-        public void setImportedProductCountryOfOrigin(String imported_product_country_of_origin) {
-            set("imported_product_country_of_origin", imported_product_country_of_origin);
-        }
-
-        public String getOtherImporterName() {
-            return get("other_importer_name");
-        }
-
-        public void setOtherImporterName(String other_importer_name) {
-            set("other_importer_name", other_importer_name);
-        }
-
-        public String getOtherImporterAddress() {
-            return get("other_importer_address");
-        }
-
-        public void setOtherImporterAddress(String other_importer_address) {
-            set("other_importer_address", other_importer_address);
-        }
-
-        public String getOtherPremises() {
-            return get("other_premises");
-        }
-
-        public void setOtherPremises(String other_premises) {
-            set("other_premises", other_premises);
-        }
-
-        public String getOtherImporterCountryOfOrigin() {
-            return get("other_importer_country_of_origin");
-        }
-
-        public void setOtherImporterCountryOfOrigin(String other_importer_country_of_origin) {
-            set("other_importer_country_of_origin", other_importer_country_of_origin);
-        }
-    }
-
-    public static class MandatoryReqsVeggiesFruits extends BecknObject {
-
-    }
 }
