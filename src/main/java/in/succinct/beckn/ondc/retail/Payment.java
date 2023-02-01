@@ -16,38 +16,24 @@ public class Payment extends in.succinct.beckn.Payment {
     }
 
     @Override
-    public String getCollectedByStatus(){
-        return get("@ondc/org/collected_by_status");
+    public NegotiationStatus getCollectedByStatus(){
+        String s =  get("@ondc/org/collected_by_status");
+        return s== null ? null : NegotiationStatus.valueOf(s);
     }
-    static final Set<String> COLLECTED_BY_STATUS = new HashSet<String>(){{
-        add("Assert");
-        add("Agree");
-        add("Disagree");
-        add("Terminate");
-    }};
     @Override
-    public void setCollectedByStatus(String collected_by_status){
-        if (!COLLECTED_BY_STATUS.contains(collected_by_status)){
-            throw new IllegalArgumentException();
-        }
-        set("@ondc/org/collected_by_status",collected_by_status);
+    public void setCollectedByStatus(NegotiationStatus collected_by_status){
+        set("@ondc/org/collected_by_status",collected_by_status == null ? null : collected_by_status.toString());
     }
 
     @Override
-    public String getBuyerAppFinderFeeType() {
-        return get("@ondc/org/buyer_app_finder_fee_type");
+    public CommissionType getBuyerAppFinderFeeType() {
+        String s = get("@ondc/org/buyer_app_finder_fee_type");
+        return s == null ? null : CommissionType.valueOf(s);
     }
 
-    static final Set<String> FINDER_FEE_TYPES = new HashSet<String>(){{
-        add("Percent");
-        add("Amount");
-    }};
     @Override
-    public void setBuyerAppFinderFeeType(String buyer_app_finder_fee_type) {
-        if (!FINDER_FEE_TYPES.contains(buyer_app_finder_fee_type)){
-            throw new IllegalArgumentException();
-        }
-        set("@ondc/org/buyer_app_finder_fee_type", buyer_app_finder_fee_type);
+    public void setBuyerAppFinderFeeType(CommissionType buyer_app_finder_fee_type) {
+        set("@ondc/org/buyer_app_finder_fee_type", buyer_app_finder_fee_type  == null ? null : buyer_app_finder_fee_type.toString());
     }
 
     @Override
@@ -69,21 +55,13 @@ public class Payment extends in.succinct.beckn.Payment {
     }
 
     @Override
-    public String getWithholdingAmountStatus(){
-        return get("@ondc/org/withholding_amount_status");
+    public NegotiationStatus getWithholdingAmountStatus(){
+        String s = get("@ondc/org/withholding_amount_status");
+        return s == null ? null : NegotiationStatus.valueOf(s);
     }
-    static final Set<String> WITHHOLDING_AMOUNT_STATUS = new HashSet<String>(){{
-        add("Assert");
-        add("Agree");
-        add("Disagree");
-        add("Terminate");
-    }};
     @Override
-    public void setWithholdingAmountStatus(String withholding_amount_status){
-        if (!WITHHOLDING_AMOUNT_STATUS.contains(withholding_amount_status)){
-            throw new IllegalArgumentException();
-        }
-        set("@ondc/org/withholding_amount_status",withholding_amount_status);
+    public void setWithholdingAmountStatus(NegotiationStatus withholding_amount_status){
+        set("@ondc/org/withholding_amount_status",withholding_amount_status == null ? null : withholding_amount_status.toString());
     }
 
     @Override
@@ -97,56 +75,35 @@ public class Payment extends in.succinct.beckn.Payment {
     }
 
     @Override
-    public String getReturnWindowStatus(){
-        return get("@ondc/org/return_window_status");
-    }
-    static final Set<String> RETURN_WINDOW_STATUS = new HashSet<String>(){{
-        add("Assert");
-        add("Agree");
-        add("Disagree");
-        add("Terminate");
-    }};
-    @Override
-    public void setReturnWindowStatus(String return_window_status){
-        if (!RETURN_WINDOW_STATUS.contains(return_window_status)){
-            throw new IllegalArgumentException();
-        }
-        set("@ondc/org/return_window_status",return_window_status);
+    public NegotiationStatus getReturnWindowStatus(){
+        String s = get("@ondc/org/return_window_status");
+        return s == null ? null : NegotiationStatus.valueOf(s);
     }
 
     @Override
-    public String getSettlementBasisStatus(){
-        return get("@ondc/org/settlement_basis_status");
-    }
-    static final Set<String> SETTLEMENT_BASIS_STATUS = new HashSet<String>(){{
-        add("Assert");
-        add("Agree");
-        add("Disagree");
-        add("Terminate");
-    }};
-    @Override
-    public void setSettlementBasisStatus(String settlement_basis_status){
-        if (!SETTLEMENT_BASIS_STATUS.contains(settlement_basis_status)){
-            throw new IllegalArgumentException();
-        }
-        set("@ondc/org/settlement_basis_status",settlement_basis_status);
+    public void setReturnWindowStatus(NegotiationStatus return_window_status){
+        set("@ondc/org/return_window_status",return_window_status == null ? null : return_window_status.toString());
     }
 
     @Override
-    public String getSettlementBasis(){
-        return get("@ondc/org/settlement_basis");
+    public NegotiationStatus getSettlementBasisStatus(){
+        String s= get("@ondc/org/settlement_basis_status");
+        return s == null ? null : NegotiationStatus.valueOf(s);
     }
-    static final Set<String> SETTLEMENT_BASIS = new HashSet<String>(){{
-        add("Collection");
-        add("Shipment");
-        add("Delivery");
-    }};
     @Override
-    public void setSettlementBasis(String settlement_basis){
-        if (!SETTLEMENT_BASIS.contains(settlement_basis)){
-            throw new IllegalArgumentException();
-        }
-        set("@ondc/org/settlement_basis",settlement_basis);
+    public void setSettlementBasisStatus(NegotiationStatus settlement_basis_status){
+        set("@ondc/org/settlement_basis_status",settlement_basis_status == null ? null : settlement_basis_status.toString());
+    }
+
+    @Override
+    public SettlementBasis getSettlementBasis(){
+        String s = get("@ondc/org/settlement_basis");
+        return s == null ? null : SettlementBasis.valueOf(s);
+    }
+
+    @Override
+    public void setSettlementBasis(SettlementBasis settlement_basis){
+        set("@ondc/org/settlement_basis",settlement_basis == null ? null : settlement_basis.toString());
     }
 
     @Override
@@ -160,21 +117,14 @@ public class Payment extends in.succinct.beckn.Payment {
     }
 
     @Override
-    public String getSettlementWindowStatus(){
-        return get("@ondc/org/settlement_window_status");
+    public NegotiationStatus getSettlementWindowStatus(){
+        String ns = get("@ondc/org/settlement_window_status");
+        return ns==null? null : NegotiationStatus.valueOf(ns);
     }
-    static final Set<String> SETTLEMENT_WINDOW_STATUS = new HashSet<String>(){{
-        add("Assert");
-        add("Agree");
-        add("Disagree");
-        add("Terminate");
-    }};
     @Override
-    public void setSettlementWindowStatus(String settlement_window_status){
-        if (!SETTLEMENT_WINDOW_STATUS.contains(settlement_window_status)){
-            throw new IllegalArgumentException();
-        }
-        set("@ondc/org/settlement_window_status",settlement_window_status);
+    public void setSettlementWindowStatus(NegotiationStatus settlement_window_status){
+        set("@ondc/org/settlement_window_status",settlement_window_status == null ? null :
+                settlement_window_status.toString());
     }
 
     @Override

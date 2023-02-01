@@ -1,11 +1,7 @@
 package in.succinct.beckn.ondc.retail;
 
 import in.succinct.beckn.BreakUp;
-import in.succinct.beckn.Item;
 import in.succinct.beckn.Quantity;
-
-import java.util.HashSet;
-import java.util.Set;
 
 public class BreakUpElement extends BreakUp.BreakUpElement {
     public BreakUpElement(){
@@ -31,30 +27,21 @@ public class BreakUpElement extends BreakUp.BreakUpElement {
     }
 
 
-    public String getTitleType(){
-        return get("@ondc/org/title_type");
+    public BreakUpCategory getTitleType(){
+        String s = get("@ondc/org/title_type");
+        return s == null ? null : BreakUpCategory.valueOf(s);
     }
-    static final Set<String> TITLE_TYPE = new HashSet<String>(){{
-        add("item");
-        add("delivery");
-        add("packing");
-        add("tax");
-        add("misc");
-        add("discount");
-    }};
-    public void setTitleType(String title_type){
-        if (!TITLE_TYPE.contains(title_type)){
-            throw new IllegalArgumentException();
-        }
-        set("@ondc/org/title_type",title_type);
+
+    public void setTitleType(BreakUpCategory title_type){
+        set("@ondc/org/title_type",title_type == null ? null : title_type.toString());
     }
 
     @Override
-    public String getType(){
+    public BreakUpCategory getType(){
         return getTitleType();
     }
     @Override
-    public void setType(String type){
+    public void setType(BreakUpCategory type){
         setTitleType(type);
     }
 
