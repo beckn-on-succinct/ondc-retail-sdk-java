@@ -94,5 +94,10 @@ public class Item extends in.succinct.beckn.Item {
         set("@ondc/org/statutory_reqs_packaged_commodities", statutory_reqs_packaged_commodities);
     }
 
-
+    public PrepackagedFood getPrepackagedFood(){
+        return get(PrepackagedFood.class, "@ondc/org/statutory_reqs_prepackaged_food");
+    }
+    public void setPrepackagedFood(PrepackagedFood prepackaged_food){
+        set("@ondc/org/statutory_reqs_prepackaged_food",prepackaged_food);
+    }
 }

@@ -1,6 +1,8 @@
 package in.succinct.beckn.ondc.retail;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 public class Category extends in.succinct.beckn.Category {
@@ -8,22 +10,27 @@ public class Category extends in.succinct.beckn.Category {
         super();
     }
 
-    @Override
-    public String getId(){
-        return get("id");
+    public CategoryCode getCategoryCode(){
+        return stc.get((String)get("id"));
     }
-    static final Set<String> ONDC_CATEGORY_ID = new HashSet<>(){{
-        add("Packaged Commodities");
-        add("Packaged Food");
-        add("Food & Beverages");
-        add("Fashion");
-        add("Home Decor");
+
+    Map<CategoryCode,String> cts = new HashMap<>(){{
+       put(CategoryCode.FASHION,"Fashion");
+       put(CategoryCode.HOME_DECOR,"Home Decor");
+       put(CategoryCode.FOOD_AND_BEVERAGES,"Food & Beverages");
+       put(CategoryCode.PACKAGED_FOOD,"Packaged Food");
+       put(CategoryCode.PACKAGED_GOODS_NON_FOOD,"Packaged Commodities");
     }};
-    @Override
-    public void setId(String id){
-        if (!ONDC_CATEGORY_ID.contains(id)){
-            throw new IllegalArgumentException();
+    Map<String,CategoryCode> stc = new HashMap<>(){{
+        for (Entry<CategoryCode, String> categoryCodeStringEntry : cts.entrySet()) {
+            CategoryCode cc = categoryCodeStringEntry.getKey();
+            String s = categoryCodeStringEntry.getValue();
+            put(s,cc);
         }
-        set("id",id);
+    }};
+    public void setCategoryCode(CategoryCode cc){
+        set("id",cts.get(cc));
     }
+
+
 }
