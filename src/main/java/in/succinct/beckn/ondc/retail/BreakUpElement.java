@@ -26,7 +26,6 @@ public class BreakUpElement extends BreakUp.BreakUpElement {
         set("@ondc/org/item_quantity",quantity);
     }
 
-
     public BreakUpCategory getTitleType(){
         String s = get("@ondc/org/title_type");
         return s == null ? null : BreakUpCategory.valueOf(s);

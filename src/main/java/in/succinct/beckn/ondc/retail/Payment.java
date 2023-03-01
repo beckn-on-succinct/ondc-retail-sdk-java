@@ -7,6 +7,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Payment extends in.succinct.beckn.Payment {
+    @Override
+    public boolean isExtendedAttributesDisplayed(){
+        return false;
+    }
 
     public Payment(){
         super();
@@ -37,11 +41,11 @@ public class Payment extends in.succinct.beckn.Payment {
     }
 
     @Override
-    public double getBuyerAppFinderFeeAmount(){
-        return getDouble("@ondc/org/buyer_app_finder_fee_amount");
+    public Double getBuyerAppFinderFeeAmount(){
+        return getDouble("@ondc/org/buyer_app_finder_fee_amount",null);
     }
     @Override
-    public void setBuyerAppFinderFeeAmount(double buyer_app_finder_fee_amount){
+    public void setBuyerAppFinderFeeAmount(Double buyer_app_finder_fee_amount){
         set("@ondc/org/buyer_app_finder_fee_amount",buyer_app_finder_fee_amount);
     }
 

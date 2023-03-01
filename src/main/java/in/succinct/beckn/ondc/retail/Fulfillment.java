@@ -8,7 +8,10 @@ public class Fulfillment extends in.succinct.beckn.Fulfillment {
     public Fulfillment(){
         super();
     }
-
+    @Override
+    public boolean isExtendedAttributesDisplayed(){
+        return false;
+    }
 
     static final Map<String,FulfillmentType> ONDC_FULFILMENT_TYPES = new HashMap<>(){{
         put("Delivery",FulfillmentType.home_delivery);
@@ -58,5 +61,10 @@ public class Fulfillment extends in.succinct.beckn.Fulfillment {
         set("@org/ondc/provider_name",provider_name);
     }
 
-
+    public ServiceablityTags getServiceablityTags(){
+        return get(ServiceablityTags.class, "tags");
+    }
+    public void setServiceablityTags(ServiceablityTags tags){
+        set("tags",tags);
+    }
 }

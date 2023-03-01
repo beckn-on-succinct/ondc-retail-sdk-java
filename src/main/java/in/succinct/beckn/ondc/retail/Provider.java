@@ -1,6 +1,11 @@
 package in.succinct.beckn.ondc.retail;
 
 public class Provider extends in.succinct.beckn.Provider {
+    @Override
+    public boolean isExtendedAttributesDisplayed(){
+        return false;
+    }
+
     public Provider(){
         super();
     }

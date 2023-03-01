@@ -5,7 +5,10 @@ import org.json.simple.JSONObject;
 import java.time.Duration;
 
 public class Item extends in.succinct.beckn.Item {
-
+    @Override
+    public boolean isExtendedAttributesDisplayed(){
+        return false;
+    }
 
     public Item() {
         super();
@@ -99,5 +102,12 @@ public class Item extends in.succinct.beckn.Item {
     }
     public void setPrepackagedFood(PrepackagedFood prepackaged_food){
         set("@ondc/org/statutory_reqs_prepackaged_food",prepackaged_food);
+    }
+
+    public VeggiesFruits getVeggiesFruits(){
+        return get(VeggiesFruits.class, "@ondc/org/mandatory_reqs_veggies_fruits");
+    }
+    public void setVeggiesFruits(VeggiesFruits veggies_fruits){
+        set("@ondc/org/mandatory_reqs_veggies_fruits",veggies_fruits);
     }
 }
